@@ -17,26 +17,23 @@
   html, body { margin:0; padding:0; background:#05060f; color:#fff; font-family: -apple-system, "Segoe UI", Tahoma, sans-serif; overflow:hidden; height:100dvh; overscroll-behavior:none; }
   #app { position:relative; width:100%; max-width:480px; margin:0 auto; height:100dvh; overflow:hidden; }
 
-  /* ==================== SCREENS ==================== */
-  .screen { position:absolute; inset:0; display:none; flex-direction:column; }
+  .screen { position:absolute; top:0; left:0; right:0; bottom:0; display:none; flex-direction:column; }
   .screen.active { display:flex; }
 
-  /* ==================== MENU ==================== */
-  #menuScreen { align-items:center; justify-content:center; gap:20px; padding:30px; padding-top:max(30px, env(safe-area-inset-top)); padding-bottom:max(30px, env(safe-area-inset-bottom)); background: radial-gradient(ellipse at 50% 30%, #241a4e 0%, #0b0e23 65%, #05060f 100%); }
-  #menuScreen h1 { font-size:38px; margin:0; font-weight:900; letter-spacing:1px; color:#3ED6F7; text-shadow:0 0 20px rgba(62,214,247,.5); text-align:center; }
+  #menuScreen { align-items:center; justify-content:center; gap:18px; padding:24px; padding-top:max(24px, env(safe-area-inset-top)); padding-bottom:max(24px, env(safe-area-inset-bottom)); background: radial-gradient(ellipse at 50% 30%, #241a4e 0%, #0b0e23 65%, #05060f 100%); }
+  #menuScreen h1 { font-size:40px; margin:0; font-weight:900; letter-spacing:1px; color:#3ED6F7; text-shadow:0 0 20px rgba(62,214,247,.5); text-align:center; }
   #menuScreen .sub { font-size:13px; color:#8a90b8; margin-top:-10px; }
-  .coinsBox { display:flex; align-items:center; gap:8px; background:rgba(255,196,60,.12); border:1px solid #ffc43c; padding:8px 18px; border-radius:24px; font-weight:700; color:#ffc43c; font-size:16px; }
-  .menuBtn { width:80%; max-width:300px; padding:16px; border-radius:16px; border:none; font-size:17px; font-weight:700; color:#fff; background:rgba(255,255,255,.07); border:2px solid rgba(255,255,255,.15); cursor:pointer; }
+  .coinsBox { display:flex; align-items:center; gap:8px; background:rgba(255,196,60,.12); border:1px solid #ffc43c; padding:8px 20px; border-radius:24px; font-weight:700; color:#ffc43c; font-size:16px; }
+  .menuBtn { width:80%; max-width:300px; padding:16px; border-radius:16px; font-size:17px; font-weight:700; color:#fff; background:rgba(255,255,255,.07); border:2px solid rgba(255,255,255,.15); cursor:pointer; touch-action:manipulation; }
   .menuBtn.primary { background:linear-gradient(135deg,#2fd0f7,#5b8aff); border:none; color:#04202b; font-size:20px; padding:20px; box-shadow:0 0 30px rgba(62,214,247,.4); }
   .menuBtn:active { transform:scale(.96); }
 
-  /* ==================== SUB-SCREENS (shop/arena) ==================== */
   .subHeader { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; padding-top:max(14px, env(safe-area-inset-top)); border-bottom:1px solid rgba(255,255,255,.08); }
   .subHeader h2 { font-size:20px; margin:0; font-weight:800; }
-  .backBtn { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#fff; padding:8px 16px; border-radius:12px; font-size:14px; font-weight:600; }
+  .backBtn { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#fff; padding:8px 16px; border-radius:12px; font-size:14px; font-weight:600; cursor:pointer; touch-action:manipulation; }
+  .backBtn:active { transform:scale(.95); }
   .subContent { flex:1; overflow-y:auto; padding:16px; padding-bottom:max(16px, env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:12px; }
 
-  /* ==================== ITEM CARDS ==================== */
   .itemCard { display:flex; align-items:center; gap:14px; padding:14px; border-radius:14px; background:rgba(255,255,255,.05); border:2px solid rgba(255,255,255,.1); }
   .itemCard.equipped { border-color:#3ED6F7; background:rgba(62,214,247,.1); }
   .itemCard.owned:not(.equipped) { border-color:rgba(255,255,255,.25); }
@@ -46,13 +43,14 @@
   .itemInfo .itemName { font-size:16px; font-weight:700; margin-bottom:2px; }
   .itemInfo .itemDesc { font-size:12px; color:#8a90b8; }
   .itemAction { display:flex; flex-direction:column; align-items:center; gap:4px; flex-shrink:0; }
-  .buyBtn { padding:8px 16px; border-radius:10px; border:none; font-weight:700; font-size:13px; background:#ffc43c; color:#1a1400; }
-  .equipBtn { padding:8px 16px; border-radius:10px; border:none; font-weight:700; font-size:13px; background:#2fd0f7; color:#04202b; }
+  .buyBtn { padding:8px 16px; border-radius:10px; border:none; font-weight:700; font-size:13px; background:#ffc43c; color:#1a1400; cursor:pointer; touch-action:manipulation; }
+  .buyBtn:active { transform:scale(.95); }
+  .equipBtn { padding:8px 16px; border-radius:10px; border:none; font-weight:700; font-size:13px; background:#2fd0f7; color:#04202b; cursor:pointer; touch-action:manipulation; }
+  .equipBtn:active { transform:scale(.95); }
   .ownedTag { padding:8px 12px; border-radius:10px; font-weight:700; font-size:12px; background:rgba(255,255,255,.08); color:#8a90b8; }
   .coinTag { display:flex; align-items:center; gap:4px; font-size:12px; color:#ffc43c; font-weight:700; }
   .buyBtn:disabled { opacity:.4; }
 
-  /* ==================== GAME SCREEN ==================== */
   #hud { padding:10px 12px 4px; padding-top: max(10px, env(safe-area-inset-top)); }
   .bars { display:flex; align-items:center; gap:10px; }
   .barBox { flex:1; min-width:0; }
@@ -64,18 +62,18 @@
   .enOuter { height:6px; margin-top:4px; border-radius:3px; background:#171a33; overflow:hidden; }
   #p1en { background:#ffc43c; height:100%; width:0%; transition: width .15s linear; }
   #timer { text-align:center; font-size:22px; font-weight:900; min-width:34px; color:#ffd76a; }
-  #arena { flex:1; position:relative; overflow:hidden; transition: background .3s; }
+  #arena { flex:1; position:relative; overflow:hidden; }
   canvas { display:block; }
-  #overlay { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(4,5,16,.74); z-index:10; text-align:center; gap:16px; }
+  #overlay { position:absolute; top:0; left:0; right:0; bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(4,5,16,.74); z-index:10; text-align:center; gap:16px; }
   #overlayTitle { font-size:38px; margin:0; font-weight:900; letter-spacing:1px; }
   #overlaySub { font-size:16px; color:#ffd76a; font-weight:700; }
-  #restartBtn, #menuBackBtn { display:none; padding:11px 30px; font-size:15px; border-radius:24px; border:none; background:#2fd0f7; color:#04202b; font-weight:700; }
+  #restartBtn, #menuBackBtn { display:none; padding:11px 30px; font-size:15px; border-radius:24px; border:none; background:#2fd0f7; color:#04202b; font-weight:700; cursor:pointer; touch-action:manipulation; }
   #menuBackBtn { background:rgba(255,255,255,.15); color:#fff; }
   .overlayBtns { display:flex; gap:10px; }
   #controls { display:flex; justify-content:space-between; align-items:flex-end; padding:12px 14px; padding-bottom: max(18px, env(safe-area-inset-bottom)); gap:10px; }
   .padGroup, .atkGroup { display:flex; flex-direction:column; align-items:center; gap:8px; }
   .padRow { display:flex; gap:10px; }
-  .btn { width:54px; height:54px; border-radius:50%; border:2px solid rgba(255,255,255,.22); background:rgba(255,255,255,.07); color:#fff; font-size:19px; display:flex; align-items:center; justify-content:center; }
+  .btn { width:54px; height:54px; border-radius:50%; border:2px solid rgba(255,255,255,.22); background:rgba(255,255,255,.07); color:#fff; font-size:19px; display:flex; align-items:center; justify-content:center; cursor:pointer; touch-action:manipulation; }
   .btn:active { background:rgba(255,255,255,.22); transform:scale(.92); }
   .atkGroup .btn.special { width:62px; height:62px; background:rgba(255,196,60,.14); border-color:#ffc43c; }
   .atkGroup .btn.special.ready { box-shadow:0 0 14px #ffc43c; }
@@ -88,37 +86,33 @@
 <body>
 <div id="app">
 
-  <!-- ==================== MENU SCREEN ==================== -->
   <div id="menuScreen" class="screen active">
     <h1>ستيك مان</h1>
     <div class="sub">🥊 قتال الأنمي 🥊</div>
     <div class="coinsBox">💰 <span id="menuCoins">0</span></div>
-    <button class="menuBtn primary" id="playBtn">▶ ابدأ القتال</button>
-    <button class="menuBtn" id="shopBtn">🎨 المتجر</button>
-    <button class="menuBtn" id="arenaBtn">🏟️ الساحات</button>
+    <button class="menuBtn primary" id="playBtn" type="button">▶ ابدأ القتال</button>
+    <button class="menuBtn" id="shopBtn" type="button">🎨 المتجر</button>
+    <button class="menuBtn" id="arenaBtn" type="button">🏟️ الساحات</button>
   </div>
 
-  <!-- ==================== SHOP SCREEN ==================== -->
   <div id="shopScreen" class="screen">
     <div class="subHeader">
-      <button class="backBtn" id="shopBack">← رجوع</button>
+      <button class="backBtn" id="shopBack" type="button">← رجوع</button>
       <h2>🎨 السكنات</h2>
       <div class="coinTag">💰 <span id="shopCoins">0</span></div>
     </div>
     <div class="subContent" id="shopList"></div>
   </div>
 
-  <!-- ==================== ARENA SCREEN ==================== -->
   <div id="arenaScreen" class="screen">
     <div class="subHeader">
-      <button class="backBtn" id="arenaBack">← رجوع</button>
+      <button class="backBtn" id="arenaBack" type="button">← رجوع</button>
       <h2>🏟️ الساحات</h2>
       <div class="coinTag">💰 <span id="arenaCoins">0</span></div>
     </div>
     <div class="subContent" id="arenaList"></div>
   </div>
 
-  <!-- ==================== GAME SCREEN ==================== -->
   <div id="gameScreen" class="screen">
     <div id="hud">
       <div class="bars">
@@ -140,24 +134,24 @@
         <h1 id="overlayTitle">استعد</h1>
         <div id="overlaySub"></div>
         <div class="overlayBtns">
-          <button id="restartBtn">إعادة</button>
-          <button id="menuBackBtn">القائمة</button>
+          <button id="restartBtn" type="button">إعادة</button>
+          <button id="menuBackBtn" type="button">القائمة</button>
         </div>
       </div>
     </div>
     <div id="controls">
       <div class="padGroup">
-        <button class="btn" id="jumpBtn">⬆</button>
+        <button class="btn" id="jumpBtn" type="button">⬆</button>
         <div class="padRow">
-          <button class="btn" id="leftBtn">◀</button>
-          <button class="btn" id="rightBtn">▶</button>
+          <button class="btn" id="leftBtn" type="button">◀</button>
+          <button class="btn" id="rightBtn" type="button">▶</button>
         </div>
       </div>
       <div class="atkGroup">
-        <button class="btn special" id="specialBtn">⚡</button>
+        <button class="btn special" id="specialBtn" type="button">⚡</button>
         <div class="comboRow">
-          <button class="btn" id="kickBtn">🦵</button>
-          <button class="btn" id="punchBtn">✊</button>
+          <button class="btn" id="kickBtn" type="button">🦵</button>
+          <button class="btn" id="punchBtn" type="button">✊</button>
         </div>
       </div>
     </div>
@@ -166,252 +160,241 @@
 </div>
 
 <script>
-/* ============================================================
-   DATA : SKINS & ARENAS
-   ============================================================ */
-const SKINS = [
-  { id:'default', name:'الأزرق الأساسي', color:'#3ED6F7', cost:0 },
-  { id:'red',     name:'الأحمر',        color:'#FF5B4D', cost:100 },
-  { id:'green',   name:'الأخضر',        color:'#4DFF7A', cost:150 },
-  { id:'purple',  name:'البنفسجي',      color:'#B44DFF', cost:250 },
-  { id:'gold',    name:'الذهبي',        color:'#FFD23C', cost:400 },
-  { id:'rainbow', name:'قوس قزح 🌈',     color:'rainbow', cost:1000 }
-];
+(function(){
+  'use strict';
 
-const ARENAS = [
-  { id:'default', name:'الليل البنفسجي', bg:'radial-gradient(ellipse at 50% 25%, #241a4e 0%, #0b0e23 65%, #05060f 100%)', ground:'rgba(255,255,255,.15)', cost:0 },
-  { id:'sunset',  name:'الغروب',         bg:'radial-gradient(ellipse at 50% 25%, #5e1f10 0%, #2a100a 65%, #0f0505 100%)', ground:'rgba(255,170,90,.3)',  cost:200 },
-  { id:'forest',  name:'الغابة',         bg:'radial-gradient(ellipse at 50% 25%, #1a4e24 0%, #0d2312 65%, #050f06 100%)', ground:'rgba(150,255,150,.2)', cost:300 },
-  { id:'ice',     name:'الجليد',         bg:'radial-gradient(ellipse at 50% 25%, #1a3a5e 0%, #0e1a2a 65%, #050a10 100%)', ground:'rgba(200,240,255,.25)',cost:450 },
-  { id:'void',    name:'الفراغ',         bg:'radial-gradient(ellipse at 50% 25%, #1a0033 0%, #0a001a 65%, #000 100%)',     ground:'rgba(180,100,255,.35)',cost:700 }
-];
+  // ============================================================
+  // DATA
+  // ============================================================
+  const SKINS = [
+    { id:'default', name:'الأزرق الأساسي', color:'#3ED6F7', cost:0 },
+    { id:'red',     name:'الأحمر',        color:'#FF5B4D', cost:100 },
+    { id:'green',   name:'الأخضر',        color:'#4DFF7A', cost:150 },
+    { id:'purple',  name:'البنفسجي',      color:'#B44DFF', cost:250 },
+    { id:'gold',    name:'الذهبي',        color:'#FFD23C', cost:400 },
+    { id:'rainbow', name:'قوس قزح 🌈',     color:'rainbow', cost:1000 }
+  ];
 
-/* ============================================================
-   SAVE / LOAD
-   ============================================================ */
-const DEFAULT_SAVE = {
-  coins: 0,
-  ownedSkins: ['default'],
-  ownedArenas: ['default'],
-  equippedSkin: 'default',
-  equippedArena: 'default'
-};
-let save = JSON.parse(JSON.stringify(DEFAULT_SAVE));
+  const ARENAS = [
+    { id:'default', name:'الليل البنفسجي', bg:'radial-gradient(ellipse at 50% 25%, #241a4e 0%, #0b0e23 65%, #05060f 100%)', ground:'rgba(255,255,255,.15)', cost:0 },
+    { id:'sunset',  name:'الغروب',         bg:'radial-gradient(ellipse at 50% 25%, #5e1f10 0%, #2a100a 65%, #0f0505 100%)', ground:'rgba(255,170,90,.3)',  cost:200 },
+    { id:'forest',  name:'الغابة',         bg:'radial-gradient(ellipse at 50% 25%, #1a4e24 0%, #0d2312 65%, #050f06 100%)', ground:'rgba(150,255,150,.2)', cost:300 },
+    { id:'ice',     name:'الجليد',         bg:'radial-gradient(ellipse at 50% 25%, #1a3a5e 0%, #0e1a2a 65%, #050a10 100%)', ground:'rgba(200,240,255,.25)',cost:450 },
+    { id:'void',    name:'الفراغ',         bg:'radial-gradient(ellipse at 50% 25%, #1a0033 0%, #0a001a 65%, #000 100%)',     ground:'rgba(180,100,255,.35)',cost:700 }
+  ];
 
-function loadSave(){
-  try {
-    const raw = localStorage.getItem('stickman_save_v1');
-    if(raw){
-      const parsed = JSON.parse(raw);
-      save = Object.assign({}, DEFAULT_SAVE, parsed);
-      if(!Array.isArray(save.ownedSkins))  save.ownedSkins  = ['default'];
-      if(!Array.isArray(save.ownedArenas)) save.ownedArenas = ['default'];
-      if(!save.ownedSkins.includes('default'))  save.ownedSkins.push('default');
-      if(!save.ownedArenas.includes('default')) save.ownedArenas.push('default');
-    }
-  } catch(e){ console.warn('save load failed', e); }
-}
-function persistSave(){
-  try { localStorage.setItem('stickman_save_v1', JSON.stringify(save)); } catch(e){}
-}
+  const DEFAULT_SAVE = {
+    coins: 0,
+    ownedSkins: ['default'],
+    ownedArenas: ['default'],
+    equippedSkin: 'default',
+    equippedArena: 'default'
+  };
+  let save = JSON.parse(JSON.stringify(DEFAULT_SAVE));
 
-/* ============================================================
-   SCREEN NAVIGATION
-   ============================================================ */
-let currentScreen = 'menu';
+  function loadSave(){
+    try {
+      const raw = localStorage.getItem('stickman_save_v1');
+      if(raw){
+        const parsed = JSON.parse(raw);
+        save = Object.assign({}, DEFAULT_SAVE, parsed);
+        if(!Array.isArray(save.ownedSkins))  save.ownedSkins  = ['default'];
+        if(!Array.isArray(save.ownedArenas)) save.ownedArenas = ['default'];
+        if(save.ownedSkins.indexOf('default')<0)  save.ownedSkins.push('default');
+        if(save.ownedArenas.indexOf('default')<0) save.ownedArenas.push('default');
+      }
+    } catch(e){}
+  }
+  function persistSave(){
+    try { localStorage.setItem('stickman_save_v1', JSON.stringify(save)); } catch(e){}
+  }
 
-function showScreen(name){
-  currentScreen = name;
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  if(name==='menu')  document.getElementById('menuScreen').classList.add('active');
-  if(name==='shop')  document.getElementById('shopScreen').classList.add('active');
-  if(name==='arena') document.getElementById('arenaScreen').classList.add('active');
-  if(name==='game')  document.getElementById('gameScreen').classList.add('active');
-  updateCoinDisplays();
-}
+  // ============================================================
+  // SCREENS
+  // ============================================================
+  let currentScreen = 'menu';
 
-function updateCoinDisplays(){
-  document.getElementById('menuCoins').textContent  = save.coins;
-  document.getElementById('shopCoins').textContent  = save.coins;
-  document.getElementById('arenaCoins').textContent = save.coins;
-}
+  function showScreen(name){
+    currentScreen = name;
+    const all = document.querySelectorAll('.screen');
+    for(let i=0;i<all.length;i++) all[i].classList.remove('active');
+    const map = { menu:'menuScreen', shop:'shopScreen', arena:'arenaScreen', game:'gameScreen' };
+    const el = document.getElementById(map[name]);
+    if(el) el.classList.add('active');
+    updateCoinDisplays();
+  }
 
-/* ============================================================
-   SHOP RENDER
-   ============================================================ */
-function renderShop(){
-  const list = document.getElementById('shopList');
-  list.innerHTML = '';
-  SKINS.forEach(skin => {
-    const owned = save.ownedSkins.includes(skin.id);
-    const equipped = save.equippedSkin === skin.id;
-    const card = document.createElement('div');
-    card.className = 'itemCard' + (equipped?' equipped':'') + (owned&&!equipped?' owned':'');
+  function updateCoinDisplays(){
+    const m = document.getElementById('menuCoins');
+    const s = document.getElementById('shopCoins');
+    const a = document.getElementById('arenaCoins');
+    if(m) m.textContent = save.coins;
+    if(s) s.textContent = save.coins;
+    if(a) a.textContent = save.coins;
+  }
 
-    const preview = document.createElement('div');
-    preview.className = 'itemPreview skin';
-    if(skin.color === 'rainbow'){
-      preview.style.background = 'conic-gradient(from 0deg, #ff0000, #ffaa00, #ffff00, #00ff00, #00aaff, #aa00ff, #ff0000)';
-    } else {
-      preview.style.background = skin.color;
-      preview.style.boxShadow = '0 0 14px ' + skin.color + '80';
-    }
+  // Universal button binder - uses BOTH pointerdown and click, deduped
+  function onTap(el, handler){
+    if(!el) return;
+    let lastFire = 0;
+    const fire = function(e){
+      if(e && e.preventDefault) e.preventDefault();
+      const now = Date.now();
+      if(now - lastFire < 300) return;
+      lastFire = now;
+      try { handler(); } catch(err){ console.error('handler error:', err); }
+    };
+    el.addEventListener('pointerdown', fire);
+    el.addEventListener('click', fire);
+  }
 
-    const info = document.createElement('div');
-    info.className = 'itemInfo';
-    info.innerHTML = `<div class="itemName">${skin.name}</div>
-                     <div class="itemDesc">${skin.cost===0?'مجاني':'💰 '+skin.cost}</div>`;
+  // ============================================================
+  // SHOP
+  // ============================================================
+  function renderShop(){
+    const list = document.getElementById('shopList');
+    if(!list) return;
+    list.innerHTML = '';
+    SKINS.forEach(function(skin){
+      const owned = save.ownedSkins.indexOf(skin.id) >= 0;
+      const equipped = save.equippedSkin === skin.id;
+      const card = document.createElement('div');
+      card.className = 'itemCard' + (equipped?' equipped':'') + (owned&&!equipped?' owned':'');
 
-    const action = document.createElement('div');
-    action.className = 'itemAction';
+      const preview = document.createElement('div');
+      preview.className = 'itemPreview skin';
+      if(skin.color === 'rainbow'){
+        preview.style.background = 'conic-gradient(from 0deg, #ff0000, #ffaa00, #ffff00, #00ff00, #00aaff, #aa00ff, #ff0000)';
+      } else {
+        preview.style.background = skin.color;
+        preview.style.boxShadow = '0 0 14px ' + skin.color + '80';
+      }
 
-    if(equipped){
-      action.innerHTML = '<div class="ownedTag">✓ مرتدي</div>';
-    } else if(owned){
-      const b = document.createElement('button');
-      b.className = 'equipBtn'; b.textContent = 'ارتداء';
-      b.onclick = () => { save.equippedSkin = skin.id; persistSave(); renderShop(); };
-      action.appendChild(b);
-    } else {
-      const b = document.createElement('button');
-      b.className = 'buyBtn';
-      b.textContent = 'شراء';
-      b.disabled = save.coins < skin.cost;
-      b.onclick = () => {
-        if(save.coins >= skin.cost){
-          save.coins -= skin.cost;
-          save.ownedSkins.push(skin.id);
-          save.equippedSkin = skin.id;
-          persistSave();
-          renderShop();
-          updateCoinDisplays();
-        }
-      };
-      action.appendChild(b);
-    }
+      const info = document.createElement('div');
+      info.className = 'itemInfo';
+      info.innerHTML = '<div class="itemName">' + skin.name + '</div><div class="itemDesc">' + (skin.cost===0?'مجاني':'💰 '+skin.cost) + '</div>';
 
-    card.append(preview, info, action);
-    list.appendChild(card);
-  });
-}
+      const action = document.createElement('div');
+      action.className = 'itemAction';
 
-/* ============================================================
-   ARENA RENDER
-   ============================================================ */
-function renderArenas(){
-  const list = document.getElementById('arenaList');
-  list.innerHTML = '';
-  ARENAS.forEach(ar => {
-    const owned = save.ownedArenas.includes(ar.id);
-    const equipped = save.equippedArena === ar.id;
-    const card = document.createElement('div');
-    card.className = 'itemCard' + (equipped?' equipped':'') + (owned&&!equipped?' owned':'');
+      if(equipped){
+        action.innerHTML = '<div class="ownedTag">✓ مرتدي</div>';
+      } else if(owned){
+        const b = document.createElement('button');
+        b.type='button'; b.className='equipBtn'; b.textContent='ارتداء';
+        onTap(b, function(){ save.equippedSkin = skin.id; persistSave(); renderShop(); });
+        action.appendChild(b);
+      } else {
+        const b = document.createElement('button');
+        b.type='button'; b.className='buyBtn'; b.textContent='شراء';
+        b.disabled = save.coins < skin.cost;
+        onTap(b, function(){
+          if(save.coins >= skin.cost){
+            save.coins -= skin.cost;
+            save.ownedSkins.push(skin.id);
+            save.equippedSkin = skin.id;
+            persistSave();
+            renderShop();
+            updateCoinDisplays();
+          }
+        });
+        action.appendChild(b);
+      }
 
-    const preview = document.createElement('div');
-    preview.className = 'itemPreview';
-    preview.style.background = ar.bg;
-    preview.textContent = '🏟️';
+      card.appendChild(preview); card.appendChild(info); card.appendChild(action);
+      list.appendChild(card);
+    });
+  }
 
-    const info = document.createElement('div');
-    info.className = 'itemInfo';
-    info.innerHTML = `<div class="itemName">${ar.name}</div>
-                     <div class="itemDesc">${ar.cost===0?'مجاني':'💰 '+ar.cost}</div>`;
+  // ============================================================
+  // ARENAS
+  // ============================================================
+  function renderArenas(){
+    const list = document.getElementById('arenaList');
+    if(!list) return;
+    list.innerHTML = '';
+    ARENAS.forEach(function(ar){
+      const owned = save.ownedArenas.indexOf(ar.id) >= 0;
+      const equipped = save.equippedArena === ar.id;
+      const card = document.createElement('div');
+      card.className = 'itemCard' + (equipped?' equipped':'') + (owned&&!equipped?' owned':'');
 
-    const action = document.createElement('div');
-    action.className = 'itemAction';
+      const preview = document.createElement('div');
+      preview.className = 'itemPreview';
+      preview.style.background = ar.bg;
+      preview.textContent = '🏟️';
 
-    if(equipped){
-      action.innerHTML = '<div class="ownedTag">✓ مختارة</div>';
-    } else if(owned){
-      const b = document.createElement('button');
-      b.className = 'equipBtn'; b.textContent = 'اختيار';
-      b.onclick = () => { save.equippedArena = ar.id; persistSave(); renderArenas(); };
-      action.appendChild(b);
-    } else {
-      const b = document.createElement('button');
-      b.className = 'buyBtn';
-      b.textContent = 'شراء';
-      b.disabled = save.coins < ar.cost;
-      b.onclick = () => {
-        if(save.coins >= ar.cost){
-          save.coins -= ar.cost;
-          save.ownedArenas.push(ar.id);
-          save.equippedArena = ar.id;
-          persistSave();
-          renderArenas();
-          updateCoinDisplays();
-        }
-      };
-      action.appendChild(b);
-    }
+      const info = document.createElement('div');
+      info.className = 'itemInfo';
+      info.innerHTML = '<div class="itemName">' + ar.name + '</div><div class="itemDesc">' + (ar.cost===0?'مجاني':'💰 '+ar.cost) + '</div>';
 
-    card.append(preview, info, action);
-    list.appendChild(card);
-  });
-}
+      const action = document.createElement('div');
+      action.className = 'itemAction';
 
-/* ============================================================
-   GAME CODE
-   ============================================================ */
-const canvas = document.getElementById('game');
-const ctx = canvas.getContext('2d');
-const arenaEl = document.getElementById('arena');
-const overlay = document.getElementById('overlay');
-const overlayTitle = document.getElementById('overlayTitle');
-const overlaySub = document.getElementById('overlaySub');
-const restartBtn = document.getElementById('restartBtn');
-const menuBackBtn = document.getElementById('menuBackBtn');
-const timerEl = document.getElementById('timer');
-const p1hp = document.getElementById('p1hp'), p2hp = document.getElementById('p2hp');
-const p1hpText = document.getElementById('p1hpText'), p2hpText = document.getElementById('p2hpText');
-const p1en = document.getElementById('p1en');
-const specialBtn = document.getElementById('specialBtn');
+      if(equipped){
+        action.innerHTML = '<div class="ownedTag">✓ مختارة</div>';
+      } else if(owned){
+        const b = document.createElement('button');
+        b.type='button'; b.className='equipBtn'; b.textContent='اختيار';
+        onTap(b, function(){ save.equippedArena = ar.id; persistSave(); renderArenas(); applyArenaBackground(); });
+        action.appendChild(b);
+      } else {
+        const b = document.createElement('button');
+        b.type='button'; b.className='buyBtn'; b.textContent='شراء';
+        b.disabled = save.coins < ar.cost;
+        onTap(b, function(){
+          if(save.coins >= ar.cost){
+            save.coins -= ar.cost;
+            save.ownedArenas.push(ar.id);
+            save.equippedArena = ar.id;
+            persistSave();
+            renderArenas();
+            applyArenaBackground();
+            updateCoinDisplays();
+          }
+        });
+        action.appendChild(b);
+      }
 
-const GRAVITY = 0.7, JUMP_SPEED = 13, MOVE_SPEED = 3.2, ROUND_TIME = 60, SPECIAL_COST = 45;
-const ACTION_DUR = { punch:18, kick:24, special:30, hurt:12 };
-const HIT_WIN = { punch:6, kick:8 };
-const IFRAMES = 10;
-const SPECIAL_COOLDOWN = 90;
+      card.appendChild(preview); card.appendChild(info); card.appendChild(action);
+      list.appendChild(card);
+    });
+  }
 
-let WORLD_W=360, WORLD_H=400, GROUND_Y=320;
-let player, enemy, projectiles=[], sparks=[], damageTexts=[];
-let leftHeld=false, rightHeld=false, aiCooldown=0, frameCount=0;
-let startTime=0, roundOver=false, countingDown=true;
-let hitStop = 0;
-let shakeTime = 0;
-let shakeMag = 0;
-let rewardGiven = false;
+  // ============================================================
+  // GAME
+  // ============================================================
+  const canvas = document.getElementById('game');
+  const ctx = canvas ? canvas.getContext('2d') : null;
+  const arenaEl = document.getElementById('arena');
+  const overlay = document.getElementById('overlay');
+  const overlayTitle = document.getElementById('overlayTitle');
+  const overlaySub = document.getElementById('overlaySub');
+  const restartBtn = document.getElementById('restartBtn');
+  const menuBackBtn = document.getElementById('menuBackBtn');
+  const timerEl = document.getElementById('timer');
+  const p1hp = document.getElementById('p1hp'), p2hp = document.getElementById('p2hp');
+  const p1hpText = document.getElementById('p1hpText'), p2hpText = document.getElementById('p2hpText');
+  const p1en = document.getElementById('p1en');
+  const specialBtn = document.getElementById('specialBtn');
 
-function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+  const GRAVITY = 0.7, JUMP_SPEED = 13, MOVE_SPEED = 3.2, ROUND_TIME = 60, SPECIAL_COST = 45;
+  const ACTION_DUR = { punch:18, kick:24, special:30, hurt:12 };
+  const HIT_WIN = { punch:6, kick:8 };
+  const IFRAMES = 10;
+  const SPECIAL_COOLDOWN = 90;
 
-function applyArenaBackground(){
-  const ar = ARENAS.find(a => a.id === save.equippedArena) || ARENAS[0];
-  arenaEl.style.background = ar.bg;
-  arenaEl.dataset.ground = ar.ground;
-}
-function getGroundColor(){
-  const ar = ARENAS.find(a => a.id === save.equippedArena) || ARENAS[0];
-  return ar.ground;
-}
-function getSkinColor(){
-  const sk = SKINS.find(s => s.id === save.equippedSkin) || SKINS[0];
-  return sk.color;
-}
-function isRainbow(){
-  return save.equippedSkin === 'rainbow';
-}
+  let WORLD_W=360, WORLD_H=400, GROUND_Y=320;
+  let player=null, enemy=null, projectiles=[], sparks=[], damageTexts=[];
+  let leftHeld=false, rightHeld=false, aiCooldown=0, frameCount=0;
+  let startTime=0, roundOver=false, countingDown=true;
+  let hitStop=0, shakeTime=0, shakeMag=0, rewardGiven=false;
+  let loopRunning=false;
 
-function resizeCanvas(){
-  const rect = arenaEl.getBoundingClientRect();
-  if(rect.width === 0 || rect.height === 0) return;
-  WORLD_W = rect.width; WORLD_H = rect.height;
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = WORLD_W*dpr; canvas.height = WORLD_H*dpr;
-  canvas.style.width = WORLD_W+'px'; canvas.style.height = WORLD_H+'px';
-  ctx.setTransform(dpr,0,0,dpr,0,0);
-  GROUND_Y = WORLD_H*0.8;
-}
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
 
-function newFighter(x, color, isPlayer){
-  return { x, y:0, vx:0, vy:0, onGround:true, hp:100, energy:0, facing:isPlayer?1:-1,
-    state:'idle', stateTimer:0, hasHit:false, specialFired
+  function applyArenaBackground(){
+    const ar = ARENAS.find(function(a){ return a.id === save.equippedArena; }) || ARENAS[0];
+    if(arenaEl){ arenaEl.style.background = ar.bg; arenaEl.dataset.ground = ar.ground; }
+  }
+  function
